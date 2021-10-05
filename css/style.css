@@ -44,25 +44,32 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 /* Main Container for Search box */
-.s130 {
+.s130bi {
   min-height: 100vh;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
-  font-family: 'Poppins', sans-serif;
   background: url("../images/Searchs_130.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: scroll;
+}
+
+.s130 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
   padding: 15px;
 }
 
 .s130 form {
   width: 100%;
   max-width: 790px;
-  padding-top: 24vh;
+  padding-top: 10vh;
+}
+
+.s130bi form {
+  padding-top: 20vh;
 }
 
 .s130 form .inner-form {
