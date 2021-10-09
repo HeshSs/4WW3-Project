@@ -10552,6 +10552,7 @@ section.w3l-grid-quote h3 {
 /*-- mid --*/
 .w3l-footers-1 {
   /*-- responsive design --*/
+
   /*-- //responsive design --*/ }
   .w3l-footers-1 .d-grid {
     display: grid; }
@@ -12520,14 +12521,14 @@ div.ppt {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-.multi-post a.category {
+.multi-post a.location {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 1px;
   color: var(--para);
   padding-left: 10px; }
 
-.multi-post a.category:hover {
+.multi-post a.location:hover {
   color: var(--heading); }
 
 @media (max-width: 768px) {
@@ -12553,7 +12554,7 @@ div.ppt {
     color: var(--para);
     text-transform: uppercase;
     letter-spacing: 1px; }
-  .content-with-photo-15 .content-photo a.category {
+  .content-with-photo-15 .content-photo a.location {
     text-transform: uppercase;
     font-size: 15px;
     letter-spacing: 1px;
@@ -12636,14 +12637,14 @@ a.blog-link {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-.content-left-sec a.category {
+.content-left-sec a.location {
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 1px;
   color: var(--para);
   padding-left: 10px; }
 
-.content-left-sec a.category:hover {
+.content-left-sec a.location:hover {
   color: var(--heading);
   text-decoration: none; }
 
@@ -13286,7 +13287,7 @@ a.blog-link {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-.text-11 .text11-content a.category {
+.text-11 .text11-content a.location {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 1px;
@@ -13481,7 +13482,7 @@ a.blog-link {
     margin-top: 15px; }
   .text-11 .text11-content h6 {
     font-size: 15px; }
-  .text-11 .text11-content a.category {
+  .text-11 .text11-content a.location {
     font-size: 15px;
     padding-left: 15px; }
   .text-11 .text11-content h5 {
