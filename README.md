@@ -20,3 +20,7 @@ SpotSubmission.html -> Spot submission page
 UserRegistration.html -> User Registration page
 
 css/style.css -> Stylesheet
+
+## References
+- https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-javascript
+- 

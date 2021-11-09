@@ -44,8 +44,23 @@
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* Submission Pages */
+/* Google map */
 
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    height: 600px;
+    width: 100%;
+}
+
+@media screen and (min-width: 481px) {
+    #map{
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 7%;
+    }
+}
+
+/* Submission Pages */
 
 #container {
     display: flex;
@@ -14117,12 +14132,6 @@ a.navbar-brand span.fa {
     .navbar {
         padding: 0rem 0rem !important;
     }
-}
-
-@media screen and (max-width: 600px) {
-    .navbar {
-        padding: 0rem 0rem !important;
-    }
 
     .inner-banner {
         height: 85px;
@@ -18579,6 +18588,7 @@ a.blog-link {
     .text-11 .text11-content a.next, .text-11 .text11-content a.prev {
         font-size: 35px;
         line-height: 40px;
+        margin-top: 10px;
         margin-top: 10px;
     }
 
