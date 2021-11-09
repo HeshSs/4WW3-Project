@@ -23,4 +23,8 @@ css/style.css -> Stylesheet
 
 ## References
 - https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-javascript
+- https://products.aspose.app/imaging/image-resize/svg
+- https://developers.google.com/maps/documentation/javascript/markers
+- https://dryicons.com/free-icons/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - 
