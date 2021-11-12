@@ -22,6 +22,8 @@
 
     <!-- Scripts -->
     <script src="./scripts/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -127,5 +129,24 @@
     </section>
 </footer>
 <!-- //Footer -->
+
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" class="editContent" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+</button>
+<!-- /move top -->
+
+<!-- Scripts -->
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+
+<!--  bootstrap js -->
+<script src="scripts/bootstrap.min.js"></script>
 </body>
 </html>

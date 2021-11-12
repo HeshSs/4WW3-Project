@@ -19,6 +19,11 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
           integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+    <!-- Scripts -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <!-- header -->
@@ -123,7 +128,23 @@
 </footer>
 <!-- //Footer -->
 
-<!-- Scripts -->
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" class="editContent" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+</button>
+<!-- /move top -->
 
+<!-- Scripts -->
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+
+<!--  bootstrap js -->
+<script src="scripts/bootstrap.min.js"></script>
 </body>
 </html>

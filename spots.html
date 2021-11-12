@@ -23,6 +23,7 @@
     <!-- Scripts -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="./scripts/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -96,8 +97,8 @@
                 <a>
                     <h4 class="mt-2 mb-0">Campus Map</h4>
                 </a>
-                <h6 class="mt-sm-2 mt-1">Oct 8th, 2021</h6>
-                <a class="mt-sm-2 mt-1" href="#location">McMaster University</a>
+                <h6 class="mt-sm-2 mt-1">McMaster University</h6>
+                <a class="mt-sm-2 mt-1" class="location">(43.262706332597624, -79.91890681273307)</a>
             </div>
         </div>
         <div class="text-image-post">
@@ -194,10 +195,22 @@
 </footer>
 <!-- //Footer -->
 
-<!-- Maps script-->
+<!-- Scripts -->
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap&v=weekly"></script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+
+<!--  bootstrap js -->
+<script src="scripts/bootstrap.min.js"></script>
 </body>
 
 </html>
