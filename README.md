@@ -2,13 +2,17 @@
 
 ## Link to Server
 
-http://3.21.3.118/
+In order for our website to have SSL we had to move it to a Domain so we have 2 links to our live website:
+
+[Without SSL](http://3.21.3.118/)
+
+[With SSL](hishmatsalehi.me)
 
 ## Group Members
 
 Hishmat Salehi - salehh6 - 400172262
 
-Simran Kumar - kumars35 -
+Simran Kumar - kumars35 - 400220225
 
 ## Corresponding pages
 

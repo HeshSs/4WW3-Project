@@ -1,6 +1,7 @@
 // Google maps
 let map;
 let markers = [];
+
 // HashMap of images
 const images = new Map();
 
@@ -144,7 +145,9 @@ const handleUserReg = (event) => {
     window.location.reload();
 };
 
-// When the user scrolls down 20px from the top of the document, show the button
+/**
+ * When the user scrolls down 20px from the top of the document, show the button
+ */
 window.onscroll = function () {
     scrollFunction()
 };
@@ -157,8 +160,46 @@ function scrollFunction() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
+/**
+ * When the user clicks on the button, scroll to the top of the document
+ */
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+/**
+ * Searches for what the user inputted
+ */
+function search() {
+    const searchInput = document.getElementById("searchInput");
+
+    if (!searchInput.value)
+        return alert(`${searchInput.name} is required, please enter a location in this format (latitude, longitude)`);
+    else
+        window.location = ("spots.html?" + searchInput.value);
+}
+
+/**
+ * Gets user's location
+ */
+function getUserLocation() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+/**
+ * If user's location was retrieved successfully
+ * @param position is the position of the user in (latitude, longitude) format.
+ */
+function onSuccess(position) {
+    // Goes to the spots page with the coordinates of the user
+    window.location = ("spots.html?" + "(" + position.coords.latitude + "," + position.coords.longitude + ")");
+};
+
+/**
+ * If there is an error during user location retrieval
+ * @param error
+ */
+function onError(error) {
+    alert('Error: ' + error.message);
 }
