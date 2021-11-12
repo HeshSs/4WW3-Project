@@ -19,6 +19,10 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
           integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+    <!-- Scripts -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="./scripts/index.js"></script>
 </head>
 
 <body>
@@ -58,28 +62,64 @@
 </header>
 <!-- //header -->
 
+<div class="multi-post py-5">
+    <div class="full-width-image-post py-lg-4">
+        <div class="container mx-auto">
+            <!-- Google Maps -->
+            <div class="content-left-sec">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section>
     <div class="form-sec">
         <div id="container">
             <div class="form-box">
-                <form class="form" name="form" action="#" method="post">
+                <form class="form" id="form" name="form" action="#" method="post">
                     <div class="input_fields">
-                        <fieldset>
-                            <input class="form-input" type="text" placeholder="Spot name" required>
-                        </fieldset>
-                        <fieldset>
-                            <input class="form-input" type="text" placeholder="Spot location" required>
-                        </fieldset>
+                        <input
+                                class="form-input"
+                                type="text"
+                                name="Name"
+                                placeholder="Location name"
+                        />
 
-                        <fieldset>
-                            <input class="form-input" type="file" required>
-                        </fieldset>
+                        <input class="form-input" type="file" name="file"/>
+                        <input
+                                class="form-input"
+                                type="text"
+                                name="latitude"
+                                placeholder="Latitude"
+                        />
+                        <input
+                                class="form-input"
+                                type="text"
+                                name="longitude"
+                                placeholder="Longitude"
+                        />
+                        <input
+                                class="form-input"
+                                type="text"
+                                name="location type"
+                                placeholder="Location type"
+                        />
                     </div>
 
-                    <fieldset>
-                        <textarea class="form-input" placeholder="Description" required></textarea>
-                    </fieldset>
-                    <button class="form-btn" type="submit">SUBMIT</button>
+                    <textarea
+                            class="form-input"
+                            name="Description"
+                            placeholder="Description"
+                    ></textarea>
+                    <button
+                            class="form-btn"
+                            name="btn"
+                            onclick="checkSubmission(event)"
+                            type="submit"
+                    >
+                        SUBMIT
+                    </button>
                 </form>
             </div>
         </div>
@@ -133,6 +173,11 @@
     </section>
 </footer>
 <!-- //Footer -->
+
+<!-- Maps script-->
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap&v=weekly"></script>
 </body>
 
 </html>

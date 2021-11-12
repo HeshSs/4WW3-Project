@@ -19,6 +19,9 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
           integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+    <!-- Scripts -->
+    <script src="./scripts/index.js"></script>
 </head>
 
 <body>
@@ -62,23 +65,15 @@
     <div class="form-sec">
         <div id="container">
             <div class="form-box">
-                <form class="form" name="form" action="#" method="post">
+                <form class="form" name="form" id='userReg' action="#" method="post">
                     <div class="input_fields_2">
-                        <fieldset>
-                            <input class="form-input" type="text" placeholder="Username" required>
-                        </fieldset>
+                        <input class="form-input" type="text" placeholder="Username" name='User name'>
 
-                        <fieldset>
-                            <input class="form-input" type="email" placeholder="Email" required>
-                        </fieldset>
-                        <fieldset>
-                            <input class="form-input" type="date" placeholder="DOB" required>
-                        </fieldset>
-                        <fieldset>
-                            <input class="form-input" type="password" placeholder="Password" required>
-                        </fieldset>
+                        <input class="form-input" type="email" placeholder="Email" name='Email'>
+                        <input class="form-input" type="date" placeholder="DOB" name='DOB'>
+                        <input class="form-input" type="password" placeholder="Password" name='Password'>
                     </div>
-                    <button class="form-btn" type="submit">Sign Up</button>
+                    <button class="form-btn" name='btn' onclick="handleUserReg(event)" type="submit">Sign Up</button>
                 </form>
             </div>
         </div>

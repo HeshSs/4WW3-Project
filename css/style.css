@@ -127,17 +127,15 @@ fieldset {
 }
 
 .form-btn {
-    width: 107%;
-    margin-top: 10px;
+    width: 100%;
+    margin: 10px 0 0;
     padding: 14px;
-    border: none;
     border-radius: 4px;
     background-color: #3d393594;
     color: #fff;
     font-size: 1.125rem;
     letter-spacing: 2px;
     text-align: center;
-    outline: none;
     cursor: pointer;
 }
 

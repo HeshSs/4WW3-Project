@@ -7,7 +7,9 @@ const images = new Map();
 images.set(0, "../images/first-aid-kit.svg");
 images.set(1, "../images/emergency-telephone.svg");
 
-// Map initializer
+/**
+ * Initializes the map
+ */
 function initMap() {
     // McMaster coordinates: 43.262706332597624, -79.91890681273307
     var macLatlng = new google.maps.LatLng(43.262706332597624, -79.91890681273307);
@@ -77,7 +79,9 @@ function setMapOnAll(map) {
     }
 }
 
-// Shows any markers currently in the array.
+/**
+ * Shows any markers currently in the array.
+ */
 function showMarkers() {
     setMapOnAll(map);
 }
@@ -96,3 +100,46 @@ function deleteMarkers() {
     hideMarkers();
     markers = [];
 }
+
+/**
+ * Verifies location submission details
+ */
+const checkSubmission = (event) => {
+    event.preventDefault();
+    const elements = document.getElementById("form").elements;
+    for (var i = 0; i < elements.length; i++) {
+        var item = elements.item(i);
+        if (item.name == "btn") break;
+        if (item.name == "file" && item.files.length == 0)
+            return alert(
+                `${item.name} is required, please upload a file!`
+            );
+        if (!item.value)
+            return alert(`${item.name} is required, please enter a value!`);
+
+    }
+    alert("You have successfully submitted a new emergency location!");
+    window.location.reload();
+};
+
+/**
+ * Verifies the user registration details
+ */
+const handleUserReg = (event) => {
+    event.preventDefault();
+    const elements = document.getElementById("userReg").elements;
+    for (var i = 0; i < elements.length; i++) {
+        var item = elements.item(i);
+        if (item.name == "btn") break;
+        if (item.name == 'Email') {
+            if (!item.value.includes('@')) return alert('Email address invalid, please enter again')
+        }
+        if (item.name == 'Password' && (item.value.length < 8)) {
+            return alert(`${item.name} has to be at least 8 characters!`);
+        }
+        if (!item.value)
+            return alert(`${item.name} is required, please enter a value!`);
+    }
+    alert("You have successfully registered an account");
+    window.location.reload();
+};
