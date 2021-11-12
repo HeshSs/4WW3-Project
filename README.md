@@ -1,12 +1,18 @@
 # 4WW3-Project
 
-## Link to Server
+## Links
+
+### Live Webpages
 
 In order for our website to have SSL we had to move it to a Domain so we have 2 links to our live website:
 
 [Without SSL](http://3.21.3.118/)
 
 [With SSL](hishmatsalehi.me)
+
+### Git repo
+
+https://github.com/HeshSs/4WW3-Project
 
 ## Group Members
 
@@ -35,4 +41,4 @@ css/style.css -> Stylesheet
 - https://developers.google.com/maps/documentation/javascript/markers
 - https://dryicons.com/free-icons/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
-- 
+- https://www.tabnine.com/academy/javascript/get-value-of-input/
