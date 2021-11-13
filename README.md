@@ -8,7 +8,7 @@ In order for our website to have SSL we had to move it to a Domain so we have 2 
 
 [Without SSL](http://3.21.3.118/)
 
-[With SSL](hishmatsalehi.me)
+[With SSL](http://hishmatsalehi.me/)
 
 ### Git repo
 
