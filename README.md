@@ -14,6 +14,14 @@ In order for our website to have SSL we had to move it to a Domain so we have 2 
 
 https://github.com/HeshSs/4WW3-Project
 
+## Commands to run for Database and server
+
+`sudo apt install mysql-server`
+
+`sudo apt install php7.4-cli`
+
+`sudo apt-get install php-mysql`
+
 ## Group Members
 
 Hishmat Salehi - salehh6 - 400172262
