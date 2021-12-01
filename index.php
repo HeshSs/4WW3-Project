@@ -1,24 +1,19 @@
 <?php
-$dbport = "3306";
-$servername = "ww3-database.cp0wobp38lvg.us-east-2.rds.amazonaws.com";
-$database = "WW3_database";
-$username = "admin";
-$password = "adminadmin";
-$charset = 'utf8' ;
+
+include "functions.php";
 
 try {
 
-    $dsn = "mysql:host=$servername;port=$dbport;dbname=$database;charset=$charset";
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Variables
+    $servername = "ww3-database.cp0wobp38lvg.us-east-2.rds.amazonaws.com";
+    $port = "3306";
+    $dbname = "WW3_database";
+    $charset = 'utf8' ;
+    $username = "admin";
+    $password = "adminadmin";
 
-    echo "Connection Okay\n";
-
-} catch (PDOException $e) {
-    echo "Connection failed: ". $e->getMessage() . "\n";
-}
-
-try {
+    // connect to database
+    $pdo = connect($servername, $port, $dbname, $charset, $username, $password);
 
     // SQL Command to create table
     $createTable = "CREATE TABLE Spots (
@@ -29,17 +24,16 @@ try {
         SpotType INT NOT NULL,
         SpotDescription varchar(511)
         )";
-
+    
     // Run the create table command (Already done)
     // $pdo->query($createTable);
     
-    // SQL Command to insert row
-    $insertValues = "INSERT INTO Spots (SpotName, SpotLatitude, SpotLongitude, SpotType, SpotDescription)
-                    VALUES ('First-Aid Kit Spot', 43.26350049157633, -79.91766767857462, 0, 'This First-Aid kit is located at MUSC.')";
+    // Rows to insert
+    $insertRow1 = insertRow('First-Aid Kit Spot', 43.26350049157633, -79.91766767857462, 0, 'This First-Aid kit is located at MUSC.');
+    $insertRow2 = insertRow('First-Aid Kit Spot', 43.26278765892196, -79.91766372192467, 0, 'This First-Aid kit is located at Mills.');
 
-    // Run the insert row command
-    // $pdo->query($insertValues);
-
+    // Add the row to the dataase
+    // $pdo->query($insertRow2);
 
     // Get table rows
     $getTable = $pdo->query("SELECT * FROM Spots");
