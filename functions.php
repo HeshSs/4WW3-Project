@@ -3,14 +3,11 @@
 
 function connect($servername, $port, $dbname, $charset, $username, $password) {
     try {
-
         $dsn = "mysql:host=$servername;port=$port;dbname=$dbname;charset=$charset";
         $pdo = new PDO($dsn, $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-        echo "Connection Okay\n";
         return $pdo;
-    
     } catch (PDOException $e) {
         echo "Connection failed: ". $e->getMessage() . "\n";
     }

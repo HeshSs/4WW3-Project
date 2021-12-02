@@ -203,3 +203,19 @@ function onSuccess(position) {
 function onError(error) {
     alert('Error: ' + error.message);
 }
+
+/**
+ *
+ */
+async function getSpots() {
+    let response = await fetch("../index.php?table=spots")
+    if (response.ok) {
+        alert("We reached Success");
+        const result = response.text.toString;
+        console.log(result);
+        alert(result);
+
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
