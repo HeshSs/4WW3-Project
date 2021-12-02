@@ -22,6 +22,10 @@ sudo apt install php7.4-cli
 
 sudo apt-get install php-mysql
 
+### Run a local php server
+
+php -S localhost:8000
+
 ## Group Members
 
 Hishmat Salehi - salehh6 - 400172262

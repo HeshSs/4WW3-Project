@@ -204,18 +204,15 @@ function onError(error) {
     alert('Error: ' + error.message);
 }
 
-/**
- *
- */
-async function getSpots() {
-    let response = await fetch("../index.php?table=spots")
-    if (response.ok) {
-        alert("We reached Success");
-        const result = response.text.toString;
-        console.log(result);
-        alert(result);
 
-    } else {
-        alert("HTTP-Error: " + response.status);
-    }
+function getSpots() {
+    $.ajax({
+        url: '../index.php?table=spots',
+        success: function(data) {
+            console.log(data);
+            // Convert JSON array to Javascript array
+            var spots = JSON.parse(data);
+            return spots;
+        }
+      });
 }
