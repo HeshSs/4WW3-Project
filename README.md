@@ -16,6 +16,8 @@ https://github.com/HeshSs/4WW3-Project
 
 ## Commands to run for Database and server
 
+ sudo apt install mysql-client
+
 sudo apt install mysql-server
 
 sudo apt install php7.4-cli
