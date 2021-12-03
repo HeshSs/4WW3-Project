@@ -38,7 +38,7 @@ function initMap(mapID = "map", lat = 43.262706332597624, long = -79.91890681273
 
 
                 newMarker(parseFloat(spot_info[1]), parseFloat(spot_info[2]), spot_info[0], parseInt(spot_info[3]),
-                `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=${i}'>Go to page!</a></p>`);
+                `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})'>Go to page!</a></p>`);
             }
             // Add all the markers to the map
             showMarkers();
@@ -52,7 +52,7 @@ function initMap(mapID = "map", lat = 43.262706332597624, long = -79.91890681273
                 var spot_info = spots[i].split(",");
 
                 newMarker(parseFloat(spot_info[1]), parseFloat(spot_info[2]), spot_info[0], parseInt(spot_info[3]),
-                `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=${i}'>Go to page!</a></p>`);
+                `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})'>Go to page!</a></p>`);
             }
             // Add all the markers to the map
             showMarkers();
