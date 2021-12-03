@@ -113,7 +113,7 @@ if (htmlspecialchars($_GET["table"]) === "spots") {
             foreach(explode (" ", $query) as &$word)
             if (str_contains(strtolower($row_data[0]), strtolower($word))) {
                 array_push($closeSpots, $row);
-                continue;
+                break;
             }
         }
     }
