@@ -97,8 +97,8 @@ if (htmlspecialchars($_GET["table"]) === "spots") {
         foreach ($arr as &$row) {
             $row_data = explode (",", $row);
             
-            $inLat = abs(floatval($row_data[1]) - floatval($pair[0])) < 0.001;
-            $inLong = abs(floatval($row_data[2]) - floatval($pair[1])) < 0.001;
+            $inLat = abs(floatval($row_data[1]) - floatval($pair[0])) < 0.01;
+            $inLong = abs(floatval($row_data[2]) - floatval($pair[1])) < 0.01;
 
             if ($inLat or $inLong) {
                 array_push($closeSpots, $row);
@@ -110,8 +110,10 @@ if (htmlspecialchars($_GET["table"]) === "spots") {
         foreach ($arr as &$row) {
             $row_data = explode (",", $row);
 
-            if (str_contains(strtolower($row_data[0]), strtolower($query))) {
+            foreach(explode (" ", $query) as &$word)
+            if (str_contains(strtolower($row_data[0]), strtolower($word))) {
                 array_push($closeSpots, $row);
+                continue;
             }
         }
     }

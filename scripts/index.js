@@ -21,30 +21,45 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    // Initialize your new markers
+    // Get the spots
+    let spots;
 
-    // First Aid Kit @ MUSC: 43.26350049157633, -79.91766767857462
-    newMarker(43.26350049157633, -79.91766767857462, "First-Aid Kit Spot", 0,
-        "<h2>First-Aid Kit Spot</h2>\n<p><a href='spot1.html'>Go to page!</a></p>");
+    var query = window.location.href.split('?q=')[1];
 
-    // First Aid Kit @ Mills: 43.26278765892196, -79.91766372192467
-    newMarker(43.26278765892196, -79.91766372192467, "First-Aid Kit Spot", 0,
-        "<h2>First-Aid Kit Spot</h2>\n<p><a href='spot1.html'>Go to page!</a></p>");
+    // Check if a search is queried
+    if (query !== undefined) {
+        query = query.replaceAll('%20', ' ');
 
-    // Emergency Telephone @ MUSC: 43.263422451519816, -79.91762002305562
-    newMarker(43.263422451519816, -79.91762002305562, "Emergency Telephone Spot", 1,
-        "<h2>First-Aid Kit Spot</h2>\n<p><a href='spot2.html'>Go to page!</a></p>");
+        querySpots(query).then(function(response) {
+            spots = response;
 
-    // Emergency Telephone @ Mills: 43.26276359358968, -79.91758481896233
-    newMarker(43.26276359358968, -79.91758481896233, "Emergency Telephone Spot", 1,
-        "<h2>First-Aid Kit Spot</h2>\n<p><a href='spot2.html'>Go to page!</a></p>");
+            // Initialize your new markers
+            for (let i = 0; i < spots.length; i++) {
+                var spot_info = spots[i].split(",");
 
-    // First Aid Kit @ BSB: 43.26209985774714, -79.92019797028367
-    newMarker(43.26209985774714, -79.92019797028367, "First-Aid Kit Spot", 0,
-        "<h2>First-Aid Kit Spot</h2>\n<p><a href='spot1.html'>Go to page!</a></p>");
 
-    // Add all the markers to the map
-    showMarkers();
+                newMarker(parseFloat(spot_info[1]), parseFloat(spot_info[2]), spot_info[0], parseInt(spot_info[3]),
+                `<h2>${spot_info[0]}</h2>\n<p><a href='spot.html'>Go to page!</a></p>`);
+            }
+            // Add all the markers to the map
+            showMarkers();
+        });
+    } else {
+        getSpots().then(function(response) {
+            spots = response;
+
+            // Initialize your new markers
+            for (let i = 0; i < spots.length; i++) {
+                var spot_info = spots[i].split(",");
+
+                newMarker(parseFloat(spot_info[1]), parseFloat(spot_info[2]), spot_info[0], parseInt(spot_info[3]),
+                `<h2>${spot_info[0]}</h2>\n<p><a href='spot.html'>Go to page!</a></p>`);
+            }
+            // Add all the markers to the map
+            showMarkers();
+        });
+    }
+
 }
 
 /**
@@ -177,7 +192,7 @@ function search() {
     if (!searchInput.value)
         return alert(`${searchInput.name} is required, please enter a location in this format (latitude, longitude)`);
     else
-        window.location = ("spots.html?" + searchInput.value);
+        window.location = ("spots.html?q=" + searchInput.value);
 }
 
 /**
@@ -193,7 +208,7 @@ function getUserLocation() {
  */
 function onSuccess(position) {
     // Goes to the spots page with the coordinates of the user
-    window.location = ("spots.html?" + "(" + position.coords.latitude + "," + position.coords.longitude + ")");
+    window.location = ("spots.html?q=" + "(" + position.coords.latitude + "," + position.coords.longitude + ")");
 };
 
 /**
@@ -204,15 +219,26 @@ function onError(error) {
     alert('Error: ' + error.message);
 }
 
-
+/**
+ * @returns All the spots in the database in a JSON array
+ */
 function getSpots() {
-    $.ajax({
-        url: '../index.php?table=spots',
-        success: function(data) {
-            console.log(data);
-            // Convert JSON array to Javascript array
-            var spots = JSON.parse(data);
-            return spots;
-        }
+    return $.ajax({
+        // TODO
+        // url: '../index.php?table=spots',
+        url: `../spots.txt`,
+        dataType: 'JSON'
+      });
+}
+
+/**
+ * @returns All the spots in the database that contain the string or coordinates in a JSON array
+ */
+function querySpots(string) {
+    return $.ajax({
+        // TODO
+        // url: `../index.php?q=${string}`,
+        url: `../spots.txt`,
+        dataType: 'JSON'
       });
 }
