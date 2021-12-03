@@ -24,6 +24,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="./scripts/index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -46,7 +47,7 @@
                         <li class="nav-item mr-lg-4">
                             <a class="nav-link pl-0 pr-0" href="index.html">Home</a>
                         </li>
-                        <li class="nav-item active mr-lg-4">
+                        <li class="nav-item mr-lg-4">
                             <a class="nav-link pl-0 pr-0" href="spots.html">Emergency Spots</a>
                         </li>
                         <li class="nav-item mr-lg-4">
@@ -62,130 +63,52 @@
     </div>
 </header>
 <!-- //header -->
-
-<!-- Search box -->
-<div class="s130">
-    <form>
-        <div class="inner-form">
-            <div class="input-field first-wrap">
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                    </svg>
-                </div>
-                <input id="searchInput" name="Search input" type="text" placeholder="Search Result!" required>
-            </div>
-            <div class="input-field second-wrap">
-                <button class="btn-search" type="button" onclick="search()">SEARCH</button>
-            </div>
-        </div>
-        <!-- <span class="info">ex. Game, Music, Video, Photography</span> -->
-    </form>
-</div>
-<!-- //Search box -->
-
-<!-- blog full with image post -->
-<div class="multi-post py-5">
-    <div class="full-width-image-post py-lg-4">
-        <div class="container mx-auto">
-            <!-- Google Maps -->
-            <div class="content-left-sec">
-                <div id="map"></div>
-            </div>
-
-            <div class="full-width-image-post-content mt-4">
-                <a>
-                    <h4 class="mt-2 mb-0">Campus Map</h4>
-                </a>
-                <h6 class="mt-sm-2 mt-1">McMaster University</h6>
-                <a class="mt-sm-2 mt-1" class="location">(43.262706332597624, -79.91890681273307)</a>
-            </div>
-        </div>
-        <div class="text-image-post">
-        </div>
-    </div>
-</div>
-<!-- //blog full with image post -->
-<!-- blog 3 grids -->
-<section class="content-with-photo-15 py-5">
-    <div class="content-photo py-lg-4">
+<!-- image project -->
+<section class="text-11 py-5">
+    <div class="text11 py-lg-5 py-md-3">
         <div class="container">
-            <div class="row" id="row">
-                <!-- <div id="myHTMLWrapper" class="col-lg-4 col-md-6 content-left-sec">
-                    <a class="blog-link" href="spot1.html"><img src="images/template.jpg" class="img img-fluid" alt=""></a>
-                    <a href="spot1.html">
-                        <h4 class="mt-4 mb-0">First-Aid Kit spot 1</h4>
-                    </a>
-                    <h6 class="mt-sm-2 mt-1">Dec 6th, 2019</h6>
-                    <a href="#musc" class="location">MUSC</a>
-                    <p class="mt-2 mb-0">Donec luctus rhoncus dignissim. Integer blandit mattis arcu, id viverra
-                        orci a.</p>
-                </div> -->
+            <div class="text11-content" id="spot_info">
                 <script>
                     // Get the spots
                     let spots;
 
-                    var query = window.location.href.split('?q=')[1];
+                    var query = window.location.href.split('?spot=')[1];
 
                     // Check if a search is queried
-                    if (query !== undefined) {
-                        query = query.replaceAll('%20', ' ');
-
-                        querySpots(query).then(function(response) {
-                            spots = response;
-
-                            var wrapper = document.getElementById("row");
-
-                            var myHTML = "";
-
-                            for (let i = 0; i < spots.length; i++) {
-                                var spot_info = spots[i].split(",");
-
-                            myHTML = myHTML.concat(`
-                            <div class="col-lg-4 col-md-6 content-left-sec mt-md-0 mt-5">
-                                <a class="blog-link" href="spot.html"><img src="images/template.jpg" class="img img-fluid" alt=""></a>
-                                <a href="spot.html?spot=${i}">
-                                    <h4 class="mt-4 mb-0">${spot_info[0]}</h4>
-                                </a>
-                                <a href="spots.html?q=(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})" 
-                                class="location">(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})</a>
-                                <p class="mt-2 mb-0">${spot_info[4]}</p>
-                            </div>`);
-                            }
-                            wrapper.innerHTML = myHTML;
-                        });
-                    } else {
-                        getSpots().then(function(response) {
-                            spots = response;
-
-                            var wrapper = document.getElementById("row");
-
-                            var myHTML = "";
-
-                            for (let i = 0; i < spots.length; i++) {
-                                var spot_info = spots[i].split(",");
-
-                            myHTML = myHTML.concat(`
-                            <div class="col-lg-4 col-md-6 content-left-sec mt-md-0 mt-5">
-                                <a class="blog-link" href="spot.html"><img src="images/template.jpg" class="img img-fluid" alt=""></a>
-                                <a href="spot.html?spot=${i}">
-                                    <h4 class="mt-4 mb-0">${spot_info[0]}</h4>
-                                </a>
-                                <a href="spots.html?q=(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})" 
-                                class="location">(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})</a>
-                                <p class="mt-2 mb-0">${spot_info[4]}</p>
-                            </div>`);
-                            }
-                            wrapper.innerHTML = myHTML;
-                        });
+                    if (query === undefined) {
+                        query = "0";
                     }
+
+                    query = parseInt(query);
+
+                    getSpots().then(function(response) {
+                        spots = response;
+                        var spot_info = spots[query].split(",");
+
+                        var wrapper = document.getElementById("spot_info");
+
+                        var myHTML = `
+                        <div class="text-left">
+                            <h4 class="text-left">${query+1}. ${spot_info[0]}</h4>
+                            <span class="location">(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})</span>
+                        </div>
+
+                        <!-- Google Maps -->
+                        <div class="content-left-sec">
+                            <div id="map"></div>
+                        </div>
+
+                        <p>${spot_info[4]}</p>`;
+                        
+                        wrapper.innerHTML = myHTML;
+                    });
                 </script>
+
             </div>
         </div>
     </div>
 </section>
-<!-- //blog 3 grids -->
-
+<!-- //image project -->
 <!-- Footer -->
 <footer>
     <section class="w3l-footers-1">
@@ -252,15 +175,6 @@
             $('body').toggleClass('noscroll');
         })
     });
-</script>
-
-<script>
-    // Update the query value
-    var query = window.location.href.split('?q=')[1];
-    if (query !== undefined) {
-        query = query.replaceAll('%20', ' ');
-        document.getElementById("searchInput").value = query;
-    } 
 </script>
 
 <!--  bootstrap js -->

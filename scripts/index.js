@@ -11,15 +11,14 @@ images.set(1, "../images/emergency-telephone.svg");
 /**
  * Initializes the map
  */
-function initMap() {
-    // McMaster coordinates: 43.262706332597624, -79.91890681273307
-    var macLatlng = new google.maps.LatLng(43.262706332597624, -79.91890681273307);
+function initMap(mapID = "map", lat = 43.262706332597624, long = -79.91890681273307) {
+    var macLatlng = new google.maps.LatLng(lat, long);
     var mapOptions = {
         zoom: 16,
         center: macLatlng
     }
 
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map = new google.maps.Map(document.getElementById(mapID), mapOptions);
 
     // Get the spots
     let spots;
@@ -224,9 +223,8 @@ function onError(error) {
  */
 function getSpots() {
     return $.ajax({
-        // TODO
-        // url: '../index.php?table=spots',
-        url: `../spots.txt`,
+        url: '../index.php?table=spots',
+        // url: `../spots.txt`,
         dataType: 'JSON'
       });
 }
@@ -236,9 +234,8 @@ function getSpots() {
  */
 function querySpots(string) {
     return $.ajax({
-        // TODO
-        // url: `../index.php?q=${string}`,
-        url: `../spots.txt`,
+        url: `../index.php?q=${string}`,
+        // url: `../spots.txt`,
         dataType: 'JSON'
       });
 }
