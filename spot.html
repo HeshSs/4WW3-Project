@@ -95,9 +95,7 @@
                             var long = query_pair.split(",")[1];
 
                             if (Math.abs(parseFloat(spot_info[1]) - parseFloat(lat)) < 0.000001 || Math.abs(parseFloat(spot_info[2]) - parseFloat(long)) < 0.000001 ) {
-                                newMarker(parseFloat(spot_info[1]), parseFloat(spot_info[2]), spot_info[0], parseInt(spot_info[3]),
-                                `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=${query}'>Go to page!</a></p>`);
-                                continue;
+                                break;
                             }
                         }
 
