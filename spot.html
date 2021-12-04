@@ -68,10 +68,6 @@
 <section class="text-11 py-5">
     <div class="text11 py-lg-5 py-md-3">
         <div class="container">
-            <!-- Google Maps -->
-            <div class="content-left-sec">
-                <div id="map"></div>
-            </div>
             <div class="text11-content" id="spot_info">
                 <script>
                     // Get the spots
@@ -110,12 +106,6 @@
                             <h4 class="text-left">${spot_info[0]}</h4>
                             <span class="location">(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})</span>
                         </div>
-
-                        <!-- Google Maps -->
-                        <div class="content-left-sec">
-                            <div id="map"></div>
-                        </div>
-
                         <p>${spot_info[4]}</p>`;
                         
                         wrapper.innerHTML = myHTML;
@@ -123,6 +113,10 @@
                     });
                 </script>
                 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            </div>
+            <!-- Google Maps -->
+            <div class="content-left-sec">
+                <div id="map"></div>
             </div>
         </div>
     </div>
