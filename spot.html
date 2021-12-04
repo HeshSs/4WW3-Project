@@ -24,6 +24,9 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="./scripts/index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap"></script>
 
 </head>
 
@@ -188,12 +191,10 @@
     });
 </script>
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<!-- <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap"></script> -->
-<script $(document).ready(function() {
+
+<!-- <script $(document).ready(function() {
     defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap";
-});></script>
+});></script> -->
 <!--  bootstrap js -->
 <script src="scripts/bootstrap.min.js"></script>
 </body>
