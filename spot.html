@@ -115,7 +115,10 @@
                         
                         wrapper.innerHTML = myHTML;
 
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap"
+                        $( document ).ready(function() {
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap";
+                        });
+                        
                     });
                 </script>
                 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
