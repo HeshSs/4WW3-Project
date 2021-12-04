@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $param_description = $_POST['description'];
 
             // Bind param variable to prepares statement
-            $stmt->bind_param('sddss', $param_name, $param_latitude, $param_longitude, $param_location_type, $param_description);
+            $stmt->bind_param('sddis', $param_name, $param_latitude, $param_longitude, $param_location_type, $param_description);
 
             // Attempt to execute
             if ($stmt->execute()) {
@@ -139,7 +139,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group <?php (!empty($location_type_err)) ? 'has_error' : ''; ?>">
                         <label for="location_type">Location Type</label>
-                        <input type="text" name="location_type" id="location_type" class="form-control" value="<?php echo $location_type ?>">
+                        <select name="location_type" id="location_type" class="form-control">
+                            <option value="<?php echo 0 ?>">First-Aid Kit</option>
+                            <option value="<?php echo 1 ?>">Emergency Telephone</option>
+                            <option value="<?php echo 2 ?>">Other</option>
+                        </select>
                         <span class="help-block"><?php echo $location_type_err; ?></span>
                     </div>
 
