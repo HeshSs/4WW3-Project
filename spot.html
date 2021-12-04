@@ -94,7 +94,7 @@
                             var lat = query_pair.split(",")[0];
                             var long = query_pair.split(",")[1];
 
-                            if (Math.abs(parseFloat(spot_info[1]) - parseFloat(lat)) < 0.00000001 || Math.abs(parseFloat(spot_info[2]) - parseFloat(long)) < 0.0000000001 ) {
+                            if (Math.abs(parseFloat(spot_info[1]) - parseFloat(lat)) == 0.0 || Math.abs(parseFloat(spot_info[2]) - parseFloat(long)) == 0.0 ) {
                                 break;
                             }
                         }
