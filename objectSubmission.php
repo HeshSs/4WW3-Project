@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             formdata.append("image", fileInput);
             console.log('coming here');
             $.ajax({
-                url: "http://localhost:3050/api/upload/image",
+                url: "http://3.109.123.151:3050/api/upload/image",
                 type: "POST",
                 data: formdata,
                 processData: false,
