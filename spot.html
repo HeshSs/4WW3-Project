@@ -68,10 +68,6 @@
     <div class="text11 py-lg-5 py-md-3">
         <div class="container">
             <div class="text11-content" id="spot_info">
-                <!-- Google Maps -->
-                <div class="content-left-sec">
-                    <div id="map"></div>
-                </div>
                 <script>
                     // Get the spots
                     let spots;
@@ -118,11 +114,11 @@
                         <p>${spot_info[4]}</p>`;
                         
                         wrapper.innerHTML = myHTML;
+
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap"
                     });
                 </script>
                 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-                <script defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap"></script>
             </div>
         </div>
     </div>
