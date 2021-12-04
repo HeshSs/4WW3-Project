@@ -93,8 +93,8 @@ if (htmlspecialchars($_GET["table"]) === "spots") {
         $pair = explode (",", substr($query, 1, strlen($query) - 2));
         foreach ($arr as &$row) {
             $row_data = explode (",", $row);
-            $inLat = abs(floatval($row_data[1]) - floatval($pair[0])) < 0.01;
-            $inLong = abs(floatval($row_data[2]) - floatval($pair[1])) < 0.01;
+            $inLat = abs(floatval($row_data[1]) - floatval($pair[0])) < 0.00001;
+            $inLong = abs(floatval($row_data[2]) - floatval($pair[1])) < 0.00001;
             if ($inLat or $inLong) {
                 array_push($closeSpots, $row);
             }

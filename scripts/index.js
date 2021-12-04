@@ -35,6 +35,7 @@ function initMap() {
             // Initialize your new markers
             for (let i = 0; i < spots.length; i++) {
                 var spot_info = spots[i].split(",");
+                console.log(spot_info[0]);
 
 
                 newMarker(parseFloat(spot_info[1]), parseFloat(spot_info[2]), spot_info[0], parseInt(spot_info[3]),
