@@ -41,7 +41,8 @@ function initMap() {
                 `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})'>Go to page!</a></p>`);
             }
             // Add all the markers to the map
-            showMarkers();
+            if (markers.length > 0) 
+                showMarkers();
         });
     } else {
         getSpots().then(function(response) {
@@ -55,7 +56,8 @@ function initMap() {
                 `<h2>${i + 1}. ${spot_info[0]}</h2>\n<p><a href='spot.html?q=(${spot_info[1].replaceAll(' ', '')}, ${spot_info[2].replaceAll(' ', '')})'>Go to page!</a></p>`);
             }
             // Add all the markers to the map
-            showMarkers();
+            if (markers.length > 0) 
+                showMarkers();
         });
     }
 

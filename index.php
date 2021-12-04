@@ -51,7 +51,7 @@ $createTable = "CREATE TABLE spots (
 // $pdo->query($createTable);
 
 // SQL Command to remove everything from table
-// $removeAll = "DELETE FROM spots";
+// $removeAll = "DELETE FROM spots where name='New first aid kit (12/3 @ 10PM)'";
 
 // Run the remove all  command
 // $pdo->query($removeAll);
