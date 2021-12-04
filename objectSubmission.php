@@ -30,11 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $longitude_err = "Please enter a Longitude.";
     }
 
-    //Validate Location Type
-    if (empty(trim($_POST['location_type']))) {
-        $location_type_err = "Please enter a Location Type.";
-    }
-
     //Validate Description
     if (empty(trim($_POST['description']))) {
         $description_err = "Please enter a Description.";
@@ -144,7 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="<?php echo 1 ?>">Emergency Telephone</option>
                             <option value="<?php echo 2 ?>">Other</option>
                         </select>
-                        <span class="help-block"><?php echo $location_type_err; ?></span>
                     </div>
 
                     <div class="form-group <?php (!empty($description_err)) ? 'has_error' : ''; ?>">
