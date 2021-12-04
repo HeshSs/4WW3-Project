@@ -114,11 +114,7 @@
                         <p>${spot_info[4]}</p>`;
                         
                         wrapper.innerHTML = myHTML;
-
-                        $( document ).ready(function() {
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap";
-                        });
-                        
+ 
                     });
                 </script>
                 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
@@ -192,6 +188,12 @@
     });
 </script>
 
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<!-- <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap"></script> -->
+<script $(document).ready(function() {
+    defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAE_4hqgIsshUY4-PDqAXBLBKnvVAUgWI&callback=initMap";
+});></script>
 <!--  bootstrap js -->
 <script src="scripts/bootstrap.min.js"></script>
 </body>
