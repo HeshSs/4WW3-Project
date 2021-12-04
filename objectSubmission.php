@@ -1,7 +1,5 @@
 <?php
 require_once 'config/config.php';
-require 'index.php';
-
 // Initialize session
 session_start();
 
